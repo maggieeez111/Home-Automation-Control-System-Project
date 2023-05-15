@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header>
+        <h1>Smart Environment Control</h1>
+        <h2 style="font-size: 1rem; margin-top: 0.5em;">Bedroom</h2>
+    </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            width: 50%;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const temperature = document.getElementById('temperature').value;
+            const humidity = document.getElementById('humidity').value;
+            const lightness = document.getElementById('lightness').value;
+            const humanDetection = document.getElementById('human-detection').checked;
+
+            // Implement the functionality to control the environment settings
+            // based on the input values
+            console.log(temperature, humidity, lightness, humanDetection);
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <form id="control-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="temperature">Temperature:</label>
+                <div class="input-group">
+                    <input type="number" id="temperature" name="temperature" step="0.1" min="-50" max="50" required>
+                    <span>&deg;C</span>
+                </div>
+                <div class="input-group">
+                    <label for="current-temperature">Current Temperature:</label>
+                    <span id="current-temperature-value"></span>
+                    <span>73&deg;C</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="humidity">Humidity:</label>
+                <div class="input-group">
+                    <input type="number" id="humidity" name="humidity" step="1" min="0" max="100" required>
+                    <span>%</span>
+                </div>
+                <div class="input-group">
+                    <label for="current-humidity">Current Humidity:</label>
+                    <span id="current-humidity-value"></span>
+                    <span>30%</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lightness">Lightness:</label>
+                <div class="input-group">
+                    <input type="number" id="lightness" name="lightness" step="1" min="0" max="100" required>
+                    <span>%</span>
+                </div>
+                <div class="input-group">
+                    <label for="current-lightness">Current Lightness:</label>
+                    <span id="current-lightness-value"></span>
+                    <span>70%</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="human-detection">Enable Human Detection:</label>
+                <input type="checkbox" id="human-detection" name="human-detection">
+            </div>
+            <button type="update">Update</button>
+        </form>
+
+        <style>
+            .input-box {
+                width: 60px;
+            }
+            
+            input[type="checkbox"] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+                outline: none;
+                transition: all 0.3s ease-in-out;
+            }
+            
+            input[type="checkbox"]:checked {
+                background-color: green;
+                border: 1px solid green;
+            }
+            
+            input[type="checkbox"]:not(:checked) {
+                background-color: red;
+                border: 1px solid red;
+            }
+        </style>
+        </form>
+    </main>
+</body>
+
+</html>
